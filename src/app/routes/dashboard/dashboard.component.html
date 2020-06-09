@@ -1,0 +1,68 @@
+<!-- <page-header></page-header> -->
+
+<div class="flex mb-lg">
+    <label class="flex mr-md">
+        insertRow：<input type='number' nz-input placeholder="插入行数" [(ngModel)]="insertRow" />
+    </label>
+    <label class="flex mr-md">
+        insertCol：<input type='number' nz-input placeholder="插入列数" [(ngModel)]="insertCol" />
+    </label>
+
+    <button (click)="addChart(0)" nz-button nzType="primary">迷你图</button>
+    <button (click)="clearChart(0)" nz-button nzType="primary">清除</button>
+</div>
+
+<div class="flex mb-lg">
+    <label class="flex mr-md">
+        X:<input type='number' nz-input placeholder="开始行数" [(ngModel)]="startX" />
+    </label>
+    <label class="flex mr-md">
+        Y:<input type='number' nz-input placeholder="插入列数" [(ngModel)]="startY" />
+    </label>
+    <label class="flex mr-md">
+        width:<input type='number' nz-input placeholder="插入列数" [(ngModel)]="fWidth" />
+    </label>
+    <label class="flex mr-md">
+        height:<input type='number' nz-input placeholder="插入列数" [(ngModel)]="fHeigth" />
+    </label>
+
+    <button (click)="addChart(1)" nz-button nzType="primary">浮动图</button>
+    <button (click)="clearChart(1)" nz-button nzType="primary">清除</button>
+</div>
+
+<!-- <button (click)="addChart(2)" disabled nz-button nzType="primary">浮动自动吸附图</button> -->
+
+<button (click)="save()" class="mr-md" nz-button nzType="primary">保存并重新渲染</button>
+<!-- <button (click)="renderSheet()" nz-button nzType="primary">渲染到sheet2</button> -->
+
+
+
+<br />
+<br />
+
+<!-- <ng-template dynamic-host></ng-template> -->
+
+<div style='position: relative;'>
+    <gc-spread-sheets [hostStyle]="hostStyle" (workbookInitialized)="workbookInit($event)">
+    </gc-spread-sheets>
+
+    <ng-container *ngFor="let item of miniChartList;let chartiIndex=index">
+
+        <ng-template dynamic-host></ng-template>
+
+    </ng-container>
+
+
+
+</div>
+
+<ng-template #floatChart></ng-template>
+
+<!-- <ng-container *ngFor="let item of floatChartList;let chartiIndex=index"> -->
+
+
+
+<!-- </ng-container> -->
+
+<!-- 
+<app-spreadjs></app-spreadjs> -->
