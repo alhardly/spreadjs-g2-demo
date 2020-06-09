@@ -13,7 +13,6 @@ import { MiniChart, FloatChart } from '../MiniChart';
 import { ActivatedRoute } from '@angular/router';
 import { pxToNumber } from 'ng-zorro-antd/core/util/public-api';
 
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -326,7 +325,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
 
 
-  renderMiniChart(insertCol, insertRow) {
+  renderMiniChart(insertRow, insertCol) {
 
     if (this.notNull(insertCol) && this.notNull(insertRow) && !this.hasInserted(insertRow, insertCol)) {
 
@@ -361,6 +360,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       }, 10);
 
 
+    } else {
+      alert('该位置已有图表');
     }
   }
 
@@ -416,7 +417,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
                   this.updateChartComponent(chartComponent, wrap);
 
                   // 重新绘制图表
-                  chartComponent.renderChart(undefined, undefined, this.fWidth - 20, this.fHeigth - 20);
+                  chartComponent.renderChart(undefined, undefined, w - 20, h - 20);
                   if (floatChart) {
                     floatChart.chartComponent = chartComponent;
                     floatChart.floatingObject = this.activeSheet.floatingObjects.get(floatName);
