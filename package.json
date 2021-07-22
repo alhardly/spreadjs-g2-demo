@@ -119,7 +119,7 @@
     "stylelint-order": "^4.0.0",
     "webpack-bundle-analyzer": "^3.6.1",
     "antd-theme-generator": "1.2.2",
-    "xlsx": "^0.16.1",
+    "xlsx": "^0.17.0",
     "@delon/testing": "^9.3.2",
     "ng-alain": "^9.3.2",
     "ng-alain-codelyzer": "^0.0.1"
